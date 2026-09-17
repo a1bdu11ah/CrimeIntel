@@ -64,25 +64,25 @@ const AddPersonnel = () => {
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">✓</span>
           </div>
-          <p className="text-emerald-400 text-sm font-medium">Personnel record added successfully! Redirecting...</p>
+          <p className="text-emerald-700 text-sm font-medium">Personnel record added successfully! Redirecting...</p>
         </div>
       )}
 
       {/* Save error banner */}
       {saveError && (
         <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/30 rounded-xl px-5 py-3.5">
-          <span className="text-red-400 text-sm">{saveError}</span>
+          <span className="text-red-700 text-sm">{saveError}</span>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
           <div className="w-9 h-9 bg-purple-500/20 rounded-lg flex items-center justify-center">
-            <Users size={17} className="text-purple-400" />
+            <Users size={17} className="text-purple-700" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Add Personnel</h2>
-            <p className="text-steel-400 text-xs">Register a new officer or staff member</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Add Personnel</h2>
+            <p className="text-slate-500 text-xs">Register a new officer or staff member</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ const AddPersonnel = () => {
           <div>
             <label className="form-label">Full Name</label>
             <input className="form-input" placeholder="Officer's full name" value={form.name} onChange={set("name")} />
-            {errors.name && <p className="text-crimson-400 text-xs mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-red-700 text-xs mt-1">{errors.name}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -101,7 +101,7 @@ const AddPersonnel = () => {
                 <option value="">Select Rank...</option>
                 {ranks.map((r) => <option key={r}>{r}</option>)}
               </select>
-              {errors.rank && <p className="text-crimson-400 text-xs mt-1">{errors.rank}</p>}
+              {errors.rank && <p className="text-red-700 text-xs mt-1">{errors.rank}</p>}
             </div>
             <div>
               <label className="form-label">Department</label>
@@ -109,14 +109,14 @@ const AddPersonnel = () => {
                 <option value="">Select Department...</option>
                 {departments.map((d) => <option key={d}>{d}</option>)}
               </select>
-              {errors.department && <p className="text-crimson-400 text-xs mt-1">{errors.department}</p>}
+              {errors.department && <p className="text-red-700 text-xs mt-1">{errors.department}</p>}
             </div>
           </div>
 
           <div>
             <label className="form-label">Contact Number</label>
             <input className="form-input" placeholder="+91-XXXXX-XXXXX" value={form.contactNumber} onChange={set("contactNumber")} />
-            {errors.contactNumber && <p className="text-crimson-400 text-xs mt-1">{errors.contactNumber}</p>}
+            {errors.contactNumber && <p className="text-red-700 text-xs mt-1">{errors.contactNumber}</p>}
           </div>
 
           <div className="flex gap-3 pt-2">

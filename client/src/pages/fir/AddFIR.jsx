@@ -82,25 +82,25 @@ const AddFIR = () => {
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">✓</span>
           </div>
-          <p className="text-emerald-400 text-sm font-medium">FIR registered successfully! Redirecting...</p>
+          <p className="text-emerald-700 text-sm font-medium">FIR registered successfully! Redirecting...</p>
         </div>
       )}
 
       {/* API error banner */}
       {apiError && (
         <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/30 rounded-xl px-5 py-3.5">
-          <span className="text-red-400 text-sm">{apiError}</span>
+          <span className="text-red-700 text-sm">{apiError}</span>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
           <div className="w-9 h-9 bg-blue-600/20 rounded-lg flex items-center justify-center">
-            <FileText size={17} className="text-blue-400" />
+            <FileText size={17} className="text-blue-700" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Register FIR</h2>
-            <p className="text-steel-400 text-xs">First Information Report</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Register FIR</h2>
+            <p className="text-slate-500 text-xs">First Information Report</p>
           </div>
         </div>
 
@@ -109,7 +109,7 @@ const AddFIR = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="form-label">FIR Number</label>
-              <input className="form-input bg-navy-950 cursor-not-allowed opacity-70" value={form.firNumber} readOnly />
+              <input className="form-input bg-slate-50 cursor-not-allowed opacity-70" value={form.firNumber} readOnly />
             </div>
             <div>
               <label className="form-label">Date of Filing</label>
@@ -123,13 +123,13 @@ const AddFIR = () => {
               <option value="">Select Station...</option>
               {stations.map((s) => <option key={s}>{s}</option>)}
             </select>
-            {errors.station && <p className="text-crimson-400 text-xs mt-1">{errors.station}</p>}
+            {errors.station && <p className="text-red-700 text-xs mt-1">{errors.station}</p>}
           </div>
 
           <div>
             <label className="form-label">Complainant Name</label>
             <input className="form-input" placeholder="Full name of complainant" value={form.complainant} onChange={set("complainant")} />
-            {errors.complainant && <p className="text-crimson-400 text-xs mt-1">{errors.complainant}</p>}
+            {errors.complainant && <p className="text-red-700 text-xs mt-1">{errors.complainant}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -139,7 +139,7 @@ const AddFIR = () => {
                 <option value="">Select Type...</option>
                 {crimeTypes.map((c) => <option key={c}>{c}</option>)}
               </select>
-              {errors.crimeType && <p className="text-crimson-400 text-xs mt-1">{errors.crimeType}</p>}
+              {errors.crimeType && <p className="text-red-700 text-xs mt-1">{errors.crimeType}</p>}
             </div>
             <div>
               <label className="form-label">Status</label>
@@ -157,7 +157,7 @@ const AddFIR = () => {
               value={form.description}
               onChange={set("description")}
             />
-            {errors.description && <p className="text-crimson-400 text-xs mt-1">{errors.description}</p>}
+            {errors.description && <p className="text-red-700 text-xs mt-1">{errors.description}</p>}
           </div>
 
           <div className="flex gap-3 pt-2">

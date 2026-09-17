@@ -70,7 +70,7 @@ const EditCriminal = () => {
     return (
       <div className="max-w-3xl mx-auto">
         <div className="card flex items-center justify-center py-16">
-          <Loader size={24} className="animate-spin text-steel-400" />
+          <Loader size={24} className="animate-spin text-slate-500" />
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ const EditCriminal = () => {
     return (
       <div className="max-w-3xl mx-auto">
         <div className="card text-center py-12">
-          <p className="text-red-400 text-sm">{fetchError}</p>
+          <p className="text-red-700 text-sm">{fetchError}</p>
           <button className="btn-secondary mt-4 mx-auto" onClick={() => navigate("/criminal/view")}>
             <X size={14} /> Back to List
           </button>
@@ -99,25 +99,25 @@ const EditCriminal = () => {
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">✓</span>
           </div>
-          <p className="text-emerald-400 text-sm font-medium">Criminal record updated successfully! Redirecting...</p>
+          <p className="text-emerald-700 text-sm font-medium">Criminal record updated successfully! Redirecting...</p>
         </div>
       )}
 
       {/* Save error banner */}
       {saveError && (
         <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/30 rounded-xl px-5 py-3.5">
-          <span className="text-red-400 text-sm">{saveError}</span>
+          <span className="text-red-700 text-sm">{saveError}</span>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
           <div className="w-9 h-9 bg-amber-500/20 rounded-lg flex items-center justify-center">
-            <UserX size={17} className="text-amber-400" />
+            <UserX size={17} className="text-amber-700" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Edit Criminal Record</h2>
-            <p className="text-steel-400 text-xs font-mono">{form.name}</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Edit Criminal Record</h2>
+            <p className="text-slate-500 text-xs font-mono">{form.name}</p>
           </div>
         </div>
 

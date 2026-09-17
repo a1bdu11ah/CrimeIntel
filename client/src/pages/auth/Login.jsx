@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-navy-950 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -42,28 +42,28 @@ const Login = () => {
         }}
       />
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-crimson-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-md px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-crimson-500/10 border border-crimson-500/30 rounded-2xl mb-4">
-            <Shield size={32} className="text-crimson-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600/10 border border-blue-600/30 rounded-2xl mb-4">
+            <Shield size={32} className="text-blue-600" />
           </div>
-          <h1 className="font-heading font-bold text-4xl text-white tracking-wider">CRMS</h1>
-          <p className="text-steel-400 text-sm mt-1 uppercase tracking-widest">Crime Record Management System</p>
-          <div className="mt-3 h-px bg-gradient-to-r from-transparent via-crimson-500/40 to-transparent" />
+          <h1 className="font-heading font-bold text-4xl text-navy-900 tracking-wider">CRMS</h1>
+          <p className="text-slate-500 text-sm mt-1 uppercase tracking-widest">Crime Record Management System</p>
+          <div className="mt-3 h-px bg-gradient-to-r from-transparent via-blue-600/40 to-transparent" />
         </div>
 
         {/* Card */}
-        <div className="bg-navy-900/80 backdrop-blur-sm border border-navy-700 rounded-2xl p-8 shadow-2xl">
-          <h2 className="font-heading font-semibold text-xl text-white mb-1">Officer Sign In</h2>
-          <p className="text-steel-400 text-sm mb-6">Authorized personnel only</p>
+        <div className="bg-white backdrop-blur-sm border border-slate-200 rounded-2xl p-8 shadow-xl shadow-blue-900/10">
+          <h2 className="font-heading font-semibold text-xl text-navy-900 mb-1">Officer Sign In</h2>
+          <p className="text-slate-500 text-sm mb-6">Authorized personnel only</p>
 
           {error && (
-            <div className="flex items-start gap-2.5 bg-crimson-500/10 border border-crimson-500/30 rounded-lg px-4 py-3 mb-5">
-              <AlertCircle size={15} className="text-crimson-400 mt-0.5 flex-shrink-0" />
-              <p className="text-crimson-400 text-sm">{error}</p>
+            <div className="flex items-start gap-2.5 bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-5">
+              <AlertCircle size={15} className="text-red-700 mt-0.5 flex-shrink-0" />
+              <p className="text-red-700 text-sm">{error}</p>
             </div>
           )}
 
@@ -71,7 +71,7 @@ const Login = () => {
             <div>
               <label className="form-label">Email Address</label>
               <div className="relative">
-                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-steel-400" />
+                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input
                   type="text"
                   value={email}
@@ -85,7 +85,7 @@ const Login = () => {
             <div>
               <label className="form-label">Password</label>
               <div className="relative">
-                <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-steel-400" />
+                <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input
                   type={showPass ? "text" : "password"}
                   value={password}
@@ -96,7 +96,7 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-steel-400 hover:text-steel-200 transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700 transition-colors"
                 >
                   {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
@@ -123,14 +123,14 @@ const Login = () => {
           </form>
 
           {/* Demo credentials */}
-          <div className="mt-5 p-3 bg-navy-800/60 rounded-lg border border-navy-700">
-            <p className="text-steel-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Demo Credentials</p>
-            <p className="text-steel-300 text-xs font-mono">admin@crms.gov.in</p>
-            <p className="text-steel-300 text-xs font-mono">Admin@123</p>
+          <div className="mt-5 p-3 bg-blue-50 rounded-lg border border-slate-200">
+            <p className="text-slate-500 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Demo Credentials</p>
+            <p className="text-slate-600 text-xs font-mono">admin@crms.gov.in</p>
+            <p className="text-slate-600 text-xs font-mono">Admin@123</p>
           </div>
         </div>
 
-        <p className="text-center text-steel-400/50 text-xs mt-6">
+        <p className="text-center text-slate-500 text-xs mt-6">
           Chandigarh Police Department · Secure Portal v2.4
         </p>
       </div>

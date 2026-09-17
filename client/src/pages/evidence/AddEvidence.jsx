@@ -66,25 +66,25 @@ const AddEvidence = () => {
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">✓</span>
           </div>
-          <p className="text-emerald-400 text-sm font-medium">Evidence added successfully! Redirecting...</p>
+          <p className="text-emerald-700 text-sm font-medium">Evidence added successfully! Redirecting...</p>
         </div>
       )}
 
       {/* API error banner */}
       {apiError && (
         <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/30 rounded-xl px-5 py-3.5">
-          <span className="text-red-400 text-sm">{apiError}</span>
+          <span className="text-red-700 text-sm">{apiError}</span>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
           <div className="w-9 h-9 bg-purple-500/20 rounded-lg flex items-center justify-center">
-            <Package size={17} className="text-purple-400" />
+            <Package size={17} className="text-purple-700" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Add Evidence</h2>
-            <p className="text-steel-400 text-xs">Record evidence for a case</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Add Evidence</h2>
+            <p className="text-slate-500 text-xs">Record evidence for a case</p>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ const AddEvidence = () => {
             <div>
               <label className="form-label">Evidence Name</label>
               <input className="form-input" placeholder="Name of the evidence" value={form.evidenceName} onChange={set("evidenceName")} />
-              {errors.evidenceName && <p className="text-crimson-400 text-xs mt-1">{errors.evidenceName}</p>}
+              {errors.evidenceName && <p className="text-red-700 text-xs mt-1">{errors.evidenceName}</p>}
             </div>
             <div>
               <label className="form-label">Evidence Type</label>
@@ -102,7 +102,7 @@ const AddEvidence = () => {
                 <option value="">Select Type...</option>
                 {evidenceTypes.map((t) => <option key={t}>{t}</option>)}
               </select>
-              {errors.evidenceType && <p className="text-crimson-400 text-xs mt-1">{errors.evidenceType}</p>}
+              {errors.evidenceType && <p className="text-red-700 text-xs mt-1">{errors.evidenceType}</p>}
             </div>
           </div>
 
@@ -110,12 +110,12 @@ const AddEvidence = () => {
             <div>
               <label className="form-label">Collected Date</label>
               <input type="date" className="form-input" value={form.collectedDate} onChange={set("collectedDate")} />
-              {errors.collectedDate && <p className="text-crimson-400 text-xs mt-1">{errors.collectedDate}</p>}
+              {errors.collectedDate && <p className="text-red-700 text-xs mt-1">{errors.collectedDate}</p>}
             </div>
             <div>
               <label className="form-label">Case Number</label>
               <input className="form-input" placeholder="Associated case number" value={form.caseNumber} onChange={set("caseNumber")} />
-              {errors.caseNumber && <p className="text-crimson-400 text-xs mt-1">{errors.caseNumber}</p>}
+              {errors.caseNumber && <p className="text-red-700 text-xs mt-1">{errors.caseNumber}</p>}
             </div>
           </div>
 

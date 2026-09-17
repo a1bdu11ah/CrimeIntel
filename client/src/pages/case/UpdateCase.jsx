@@ -46,18 +46,18 @@ const UpdateCase = () => {
       {saved && (
         <div className="flex items-center gap-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-5 py-3.5">
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center text-[10px] font-bold text-white">✓</div>
-          <p className="text-emerald-400 text-sm font-medium">Case status updated successfully!</p>
+          <p className="text-emerald-700 text-sm font-medium">Case status updated successfully!</p>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
           <div className="w-9 h-9 bg-amber-500/20 rounded-lg flex items-center justify-center">
-            <TrendingUp size={17} className="text-amber-400" />
+            <TrendingUp size={17} className="text-amber-700" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Update Case Status</h2>
-            <p className="text-steel-400 text-xs">Add progress update to an existing case</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Update Case Status</h2>
+            <p className="text-slate-500 text-xs">Add progress update to an existing case</p>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ const UpdateCase = () => {
                 </option>
               ))}
             </select>
-            {errors.firId && <p className="text-crimson-400 text-xs mt-1">{errors.firId}</p>}
+            {errors.firId && <p className="text-red-700 text-xs mt-1">{errors.firId}</p>}
           </div>
 
           <div>
@@ -81,13 +81,13 @@ const UpdateCase = () => {
               <option value="">Select Status...</option>
               {caseStatuses.map((s) => <option key={s}>{s}</option>)}
             </select>
-            {errors.status && <p className="text-crimson-400 text-xs mt-1">{errors.status}</p>}
+            {errors.status && <p className="text-red-700 text-xs mt-1">{errors.status}</p>}
           </div>
 
           <div>
             <label className="form-label">Investigating Officer</label>
             <input className="form-input" placeholder="Officer name and rank" value={form.officer} onChange={set("officer")} />
-            {errors.officer && <p className="text-crimson-400 text-xs mt-1">{errors.officer}</p>}
+            {errors.officer && <p className="text-red-700 text-xs mt-1">{errors.officer}</p>}
           </div>
 
           <div>
@@ -98,7 +98,7 @@ const UpdateCase = () => {
               value={form.remarks}
               onChange={set("remarks")}
             />
-            {errors.remarks && <p className="text-crimson-400 text-xs mt-1">{errors.remarks}</p>}
+            {errors.remarks && <p className="text-red-700 text-xs mt-1">{errors.remarks}</p>}
           </div>
 
           <div className="flex gap-3 pt-2">

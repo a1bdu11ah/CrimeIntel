@@ -71,25 +71,25 @@ const AddCriminal = () => {
           <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">✓</span>
           </div>
-          <p className="text-emerald-400 text-sm font-medium">Criminal record added successfully! Redirecting...</p>
+          <p className="text-emerald-700 text-sm font-medium">Criminal record added successfully! Redirecting...</p>
         </div>
       )}
 
       {/* API error banner */}
       {apiError && (
         <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/30 rounded-xl px-5 py-3.5">
-          <span className="text-red-400 text-sm">{apiError}</span>
+          <span className="text-red-700 text-sm">{apiError}</span>
         </div>
       )}
 
       <div className="card">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-navy-800">
-          <div className="w-9 h-9 bg-crimson-500/20 rounded-lg flex items-center justify-center">
-            <UserX size={17} className="text-crimson-400" />
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
+          <div className="w-9 h-9 bg-blue-600/20 rounded-lg flex items-center justify-center">
+            <UserX size={17} className="text-blue-600" />
           </div>
           <div>
-            <h2 className="font-heading font-semibold text-xl text-white">Add Criminal Record</h2>
-            <p className="text-steel-400 text-xs">Register a new criminal profile</p>
+            <h2 className="font-heading font-semibold text-xl text-navy-900">Add Criminal Record</h2>
+            <p className="text-slate-500 text-xs">Register a new criminal profile</p>
           </div>
         </div>
 
@@ -99,12 +99,12 @@ const AddCriminal = () => {
             <div>
               <label className="form-label">Full Name</label>
               <input className="form-input" placeholder="Criminal's full name" value={form.name} onChange={set("name")} />
-              {errors.name && <p className="text-crimson-400 text-xs mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-red-700 text-xs mt-1">{errors.name}</p>}
             </div>
             <div>
               <label className="form-label">Age</label>
               <input type="number" min="1" max="120" className="form-input" placeholder="Age" value={form.age} onChange={set("age")} />
-              {errors.age && <p className="text-crimson-400 text-xs mt-1">{errors.age}</p>}
+              {errors.age && <p className="text-red-700 text-xs mt-1">{errors.age}</p>}
             </div>
           </div>
 
@@ -115,7 +115,7 @@ const AddCriminal = () => {
                 <option value="">Select Gender...</option>
                 {genders.map((g) => <option key={g}>{g}</option>)}
               </select>
-              {errors.gender && <p className="text-crimson-400 text-xs mt-1">{errors.gender}</p>}
+              {errors.gender && <p className="text-red-700 text-xs mt-1">{errors.gender}</p>}
             </div>
             <div>
               <label className="form-label">Crime Type</label>
@@ -123,20 +123,20 @@ const AddCriminal = () => {
                 <option value="">Select Type...</option>
                 {crimeTypes.map((c) => <option key={c}>{c}</option>)}
               </select>
-              {errors.crimeType && <p className="text-crimson-400 text-xs mt-1">{errors.crimeType}</p>}
+              {errors.crimeType && <p className="text-red-700 text-xs mt-1">{errors.crimeType}</p>}
             </div>
           </div>
 
           <div>
             <label className="form-label">Address</label>
             <input className="form-input" placeholder="Complete address" value={form.address} onChange={set("address")} />
-            {errors.address && <p className="text-crimson-400 text-xs mt-1">{errors.address}</p>}
+            {errors.address && <p className="text-red-700 text-xs mt-1">{errors.address}</p>}
           </div>
 
           <div>
             <label className="form-label">Arrest Date</label>
             <input type="date" className="form-input" value={form.arrestDate} onChange={set("arrestDate")} />
-            {errors.arrestDate && <p className="text-crimson-400 text-xs mt-1">{errors.arrestDate}</p>}
+            {errors.arrestDate && <p className="text-red-700 text-xs mt-1">{errors.arrestDate}</p>}
           </div>
 
           <div className="flex gap-3 pt-2">
