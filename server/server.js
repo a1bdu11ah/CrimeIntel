@@ -1,13 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connectDB = require("./db");
+const db = require("./db");
 
 // Load environment variables from .env file
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
+
 
 const app = express();
 
@@ -34,8 +33,14 @@ app.get("/", (req, res) => {
   res.json({ message: "CRMS Backend API is running!" });
 });
 
-// Start server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Export the app for Vercel and integration tests.
+module.exports = app;
+if (require.main === module) {
+  db.query('SELECT 1').then(() => {
+    const PORT = process.env.PORT || 5001;
+    app.listen(PORT, () => console.log('Server running on port ' + PORT + '; PostgreSQL connected'));
+  }).catch(() => {
+    console.error('PostgreSQL connection failed. Set DATABASE_URL in server/.env and run npm run db:migrate.');
+    process.exitCode = 1;
+  });
+}

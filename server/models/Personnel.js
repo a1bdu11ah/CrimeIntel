@@ -1,27 +1,19 @@
-const mongoose = require("mongoose");
-
-const personnelSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    rank: {
-      type: String,
-      required: true,
-    },
-    department: {
-      type: String,
-      required: true,
-    },
-    contactNumber: {
-      type: String,
-      required: true,
-    },
+const createModel = require('./createModel');
+module.exports = createModel('personnel', {
+  "name": {
+    "type": "string",
+    "required": true
   },
-  {
-    timestamps: true, // automatically adds createdAt and updatedAt
+  "rank": {
+    "type": "string",
+    "required": true
+  },
+  "department": {
+    "type": "string",
+    "required": true
+  },
+  "contactNumber": {
+    "type": "string",
+    "required": true
   }
-);
-
-module.exports = mongoose.model("Personnel", personnelSchema);
+});

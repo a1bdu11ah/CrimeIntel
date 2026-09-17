@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
     const savedFIR = await fir.save();
     res.status(201).json(savedFIR);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
     const firs = await FIR.find();
     res.status(200).json(firs);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -38,7 +38,7 @@ router.get("/:id", async (req, res) => {
     }
     res.status(200).json(fir);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -57,7 +57,7 @@ router.put("/:id", async (req, res) => {
     }
     res.status(200).json(updatedFIR);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -72,7 +72,7 @@ router.delete("/:id", async (req, res) => {
     }
     res.status(200).json({ message: "FIR deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 

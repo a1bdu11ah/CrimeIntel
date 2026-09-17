@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const saved = await criminal.save();
     res.status(201).json(saved);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     const criminals = await Criminal.find();
     res.status(200).json(criminals);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
     }
     res.status(200).json(criminal);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -49,7 +49,7 @@ router.put("/:id", async (req, res) => {
     }
     res.status(200).json(updated);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 
@@ -62,7 +62,7 @@ router.delete("/:id", async (req, res) => {
     }
     res.status(200).json({ message: "Criminal record deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    require("../respondError")(res, error);
   }
 });
 

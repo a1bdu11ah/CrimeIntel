@@ -2,7 +2,7 @@
 
 CrimeIntel is a full-stack **Crime Record Management System (CRMS)** for managing FIRs, criminal profiles, investigations, evidence, and police personnel from a single dashboard.
 
-The project uses a **React + Vite** frontend and a **Node.js + Express + MongoDB** backend. It is designed as a clean administrative portal for demonstrating CRUD workflows, routing, API integration, record management, and dashboard-style interfaces.
+The project uses a **React + Vite** frontend and a **Node.js + Express + PostgreSQL** backend. It is designed as a clean administrative portal for demonstrating CRUD workflows, routing, API integration, record management, and dashboard-style interfaces.
 
 ## Main Features
 
@@ -31,13 +31,13 @@ The project uses a **React + Vite** frontend and a **Node.js + Express + MongoDB
 
 - Node.js
 - Express.js
-- Mongoose
+- node-postgres (pg)
 - CORS
 - dotenv
 
 ### Database
 
-- MongoDB / MongoDB Atlas
+- Neon PostgreSQL
 
 ## Project Structure
 
@@ -85,16 +85,27 @@ git clone <your-repository-url>
 cd CrimeIntel-main
 ```
 
-### 2. Configure MongoDB
+### 2. Configure Neon PostgreSQL
 
-Create or update `server/.env` with your MongoDB connection string.
+Create a project in [Neon](https://console.neon.tech), open **Connect**, enable connection pooling, and copy the PostgreSQL connection string.
+Create `server/.env` using `server/.env.example`:
 
 ```env
 PORT=5001
-MONGO_URI=your_mongodb_connection_string
+DATABASE_URL=postgresql://USER:PASSWORD@HOST-pooler.REGION.aws.neon.tech/neondb?sslmode=require
 ```
 
-Do not commit real database credentials to a public repository.
+Keep the URL server-side and out of Git. Never put it in a VITE_ variable.
+Install backend dependencies and create the tables once before starting:
+
+```bash
+cd server
+npm install
+npm run db:migrate
+```
+
+The setup is repeatable and preserves existing PostgreSQL records. It does not copy old MongoDB data.
+New record IDs are UUID strings returned as `_id`, preserving the frontend API format.
 
 ### 3. Run the backend
 
@@ -206,3 +217,14 @@ This project is suitable for learning and demonstration purposes. A production l
 ## License
 
 Add the appropriate project license before public distribution.
+
+## Deploy to Vercel
+
+1. Import the repository as a backend project with root directory `server` and the Express preset. Set `DATABASE_URL` to your Neon pooled connection string.
+2. Run `npm run db:migrate` from `server` with that same database URL before serving requests. Schema creation is an explicit setup step, not performed on every request.
+3. Import the repository again as a frontend project with root directory `client`, Vite preset, build command `npm run build`, and output directory `dist`.
+4. Set frontend `VITE_API_URL` to `https://YOUR-BACKEND.vercel.app/api` and deploy. Rebuild after changing this value. `client/vercel.json` handles React page refreshes.
+
+## Database migration tests
+
+Run `npm test` inside `server`. Tests exercise all five CRUD APIs against an in-memory PostgreSQL emulator, including validation, unique record numbers, SQL parameters, and response compatibility. They do not connect to Neon or modify real records. A live Neon connection still needs verification with your own `DATABASE_URL`.

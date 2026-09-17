@@ -1,39 +1,32 @@
-const mongoose = require("mongoose");
-
-const firSchema = new mongoose.Schema(
-  {
-    firNumber: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    date: {
-      type: Date,
-      required: true,
-    },
-    policeStation: {
-      type: String,
-      required: true,
-    },
-    complainantName: {
-      type: String,
-      required: true,
-    },
-    crimeType: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-    },
-    status: {
-      type: String,
-      default: "Open",
-    },
+const createModel = require('./createModel');
+module.exports = createModel('firs', {
+  "firNumber": {
+    "type": "string",
+    "required": true
   },
-  {
-    timestamps: true, // automatically adds createdAt and updatedAt
+  "date": {
+    "type": "date",
+    "required": true
+  },
+  "policeStation": {
+    "type": "string",
+    "required": true
+  },
+  "complainantName": {
+    "type": "string",
+    "required": true
+  },
+  "crimeType": {
+    "type": "string",
+    "required": true
+  },
+  "description": {
+    "type": "string",
+    "required": false
+  },
+  "status": {
+    "type": "string",
+    "required": false,
+    "default": "Open"
   }
-);
-
-module.exports = mongoose.model("FIR", firSchema);
+});

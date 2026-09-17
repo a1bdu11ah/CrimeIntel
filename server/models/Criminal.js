@@ -1,35 +1,27 @@
-const mongoose = require("mongoose");
-
-const criminalSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    age: {
-      type: Number,
-      required: true,
-    },
-    gender: {
-      type: String,
-      required: true,
-    },
-    address: {
-      type: String,
-      required: true,
-    },
-    crimeType: {
-      type: String,
-      required: true,
-    },
-    arrestDate: {
-      type: Date,
-      required: true,
-    },
+const createModel = require('./createModel');
+module.exports = createModel('criminals', {
+  "name": {
+    "type": "string",
+    "required": true
   },
-  {
-    timestamps: true, // automatically adds createdAt and updatedAt
+  "age": {
+    "type": "number",
+    "required": true
+  },
+  "gender": {
+    "type": "string",
+    "required": true
+  },
+  "address": {
+    "type": "string",
+    "required": true
+  },
+  "crimeType": {
+    "type": "string",
+    "required": true
+  },
+  "arrestDate": {
+    "type": "date",
+    "required": true
   }
-);
-
-module.exports = mongoose.model("Criminal", criminalSchema);
+});

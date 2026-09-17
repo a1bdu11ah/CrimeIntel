@@ -1,27 +1,19 @@
-const mongoose = require("mongoose");
-
-const evidenceSchema = new mongoose.Schema(
-  {
-    evidenceName: {
-      type: String,
-      required: true,
-    },
-    evidenceType: {
-      type: String,
-      required: true,
-    },
-    collectedDate: {
-      type: Date,
-      required: true,
-    },
-    caseNumber: {
-      type: String,
-      required: true,
-    },
+const createModel = require('./createModel');
+module.exports = createModel('evidence', {
+  "evidenceName": {
+    "type": "string",
+    "required": true
   },
-  {
-    timestamps: true, // automatically adds createdAt and updatedAt
+  "evidenceType": {
+    "type": "string",
+    "required": true
+  },
+  "collectedDate": {
+    "type": "date",
+    "required": true
+  },
+  "caseNumber": {
+    "type": "string",
+    "required": true
   }
-);
-
-module.exports = mongoose.model("Evidence", evidenceSchema);
+});
